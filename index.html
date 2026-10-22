@@ -389,6 +389,7 @@ function homeView(){
  h+='</div>';
  var sg=suggest();
  if(sg){h+='<button class="row hi" data-a="start" data-t="'+sg.id+'"><span class="tx"><b>Try this next</b><small>'+esc(sg.title)+'</small></span><span class="st">▶</span></button>';}
+ h+="<a class=\"row hi\" href=\"./maths-adventure.html\" style=\"text-decoration:none;color:var(--ink)\"><span class=\"tx\"><b>🧪 Maths Adventure Lab</b><small>Learn with pictures, sliders and playful challenges</small></span><span aria-hidden=\"true\">→</span></a>";
  h+='<h2>Subjects</h2><div class="grid">';
  var first=ORDER.filter(function(k){return td.indexOf(k)>=0;}),rest=ORDER.filter(function(k){return td.indexOf(k)<0;});
  first.concat(rest).forEach(function(k){
@@ -401,6 +402,7 @@ function homeView(){
 }
 function subjView(){
  var s=SUBJ[V.s],h='<div class="top"><button class="ghost" data-a="home" aria-label="Back">←</button><h1 style="font-size:26px">'+s.emoji+' '+s.name+'</h1></div>';
+ if(V.s==='maths')h+="<a class=\"row hi\" href=\"./maths-adventure.html\" style=\"text-decoration:none;color:var(--ink)\"><span class=\"tx\"><b>🧪 Maths Adventure Lab</b><small>Learn with pictures, sliders and playful challenges</small></span><span aria-hidden=\"true\">→</span></a>";
  s.topics.forEach(function(t){
   var tp=S.topics[t.id],lv=t.gen?'Level '+lvl(t.id):(t.mix?'':'');
   h+='<button class="row" data-a="start" data-t="'+t.id+'"><span class="tx"><b>'+esc(t.title)+'</b><small>'+esc(t.sub)+(lv?', '+lv:'')+'</small></span><span class="st" aria-label="'+starsOf(t.id)+' of 3 stars">'+starTxt(starsOf(t.id))+'</span></button>';
