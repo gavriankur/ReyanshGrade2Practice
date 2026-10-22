@@ -1,7 +1,7 @@
 /* Study Dojo service worker: makes the app open offline.
    To push an update to the tablet, change CACHE below (e.g. v2), commit, and open the app twice. */
-const CACHE = 'study-dojo-v1';
-const FILES = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
+const CACHE = 'study-dojo-v2-maths-adventure';
+const FILES = ['./', './index.html', './maths-adventure.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
